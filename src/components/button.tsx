@@ -1,16 +1,23 @@
-import clsx from "clsx";
+import clsx from 'clsx';
+import type { ReactNode, ButtonHTMLAttributes } from 'react';
+import '../PricingPlans.scss';
 
-const Button = ({ children, variant = 'primary', ...props }) => (
-    <button
-        className={clsx(
-        'px-4 py-2 rounded font-medium transition',
-        variant === 'primary' && 'bg-blue-500 hover:bg-blue-600 text-white',
-        variant === 'secondary' && 'bg-gray-200 hover:bg-gray-300'
-        )}
-        {...props}
-    >
-        {children}
-    </button>
-);
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+    children: ReactNode;
+    variant?: 'primary' | 'secondary';
+}
 
-export default Button
+export default function Button({ children, variant = 'primary', ...props }: Props) {
+    return (
+        <button
+            className={clsx(
+                variant === 'primary' && 'current-plan-indicator',
+                variant === 'secondary' && 'bg-[#1a1a1a] hover:bg-[#2a2a2a] text-[#e5e5e5] border border-[#2a2a2a] hover:border-[#3a3a3a]',
+                props.className
+            )}
+            {...props}
+        >
+            {children}
+        </button>
+    )
+}

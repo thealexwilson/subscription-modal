@@ -1,0 +1,182 @@
+.pricing-plans {
+  width: 100%;
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: 3rem; /* mb-12 */
+}
+
+.pricing-title {
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 1rem; /* mb-4 */
+  color: #e5e5e5;
+}
+
+.pricing-subtitle {
+  font-size: 1.125rem; /* text-lg */
+  color: #a3a3a3;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.plan-featured {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -0.125rem; /* -inset-0.5 */
+    border-radius: 0.75rem; /* rounded-xl */
+    background: linear-gradient(135deg, #FF4A00, #ff6b33);
+    opacity: 0.3;
+    z-index: -1;
+  }
+}
+
+.plan-card {
+  border-radius: 0.5rem; /* rounded-lg */
+  border: 1px solid; /* border */
+  text-align: center; /* text-center */
+  background-color: #1a1a1a;
+  border-color: #2a2a2a;
+}
+
+.plan-header {
+  padding: 1.5rem; /* p-6 */
+  padding-bottom: 1rem; /* pb-4 */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* items-center */
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.plan-name {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 1rem; /* mb-4 */
+  color: #e5e5e5;
+}
+
+.plan-price {
+  display: flex;
+  align-items: baseline; /* items-baseline */
+  gap: 0.25rem; /* gap-1 */
+}
+
+.price-amount {
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 700; /* font-bold */
+  color: #FF4A00;
+}
+
+.price-period {
+  font-size: 1.125rem; /* text-lg */
+  color: #a3a3a3;
+}
+
+.plan-features {
+  padding: 1.5rem; /* p-6 */
+  flex: 1; /* flex-1 */
+}
+
+.plan-feature-list {
+  list-style: none; /* list-none */
+  padding: 0; /* p-0 */
+  margin: 0; /* m-0 */
+}
+
+.plan-feature-list > * + * {
+  margin-top: 0.75rem; /* space-y-3 */
+}
+
+.plan-feature {
+  font-size: 1rem; /* text-base */
+  display: flex;
+  align-items: flex-start; /* items-start */
+  color: #d4d4d4;
+  
+  &::before {
+    content: '✓';
+    margin-right: 0.75rem; /* mr-3 */
+    margin-top: 0.125rem; /* mt-0.5 */
+    font-weight: 700; /* font-bold */
+    color: #FF4A00;
+  }
+}
+
+.plan-footer {
+  padding: 1.5rem; /* p-6 */
+  padding-top: 1rem; /* pt-4 */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* items-center */
+  gap: 1rem; /* gap-4 */
+  border-top: 1px solid #2a2a2a;
+}
+
+.current-plan-indicator {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: white;
+  border: none;
+  box-sizing: border-box;
+  font-family: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+.upgrade-plan-indicator {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  background-color: #FF4A00;
+  color: white;
+  border: none;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s;
+  box-sizing: border-box;
+  font-family: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+.upgrade-plan-indicator:hover {
+  background-color: #ff6b33;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.plan-badge {
+  display: block;
+  padding: 0.375rem 0.75rem; /* px-3 py-1.5 */
+  border-radius: 9999px; /* rounded-full */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  text-align: center;
+}
+
+.plan-badge-popular {
+  background-color: rgba(255, 74, 0, 0.2);
+  color: #FF4A00;
+  border: 1px solid rgba(255, 74, 0, 0.4);
+  font-weight: 600; /* font-semibold */
+}
+
+.plan-badge-advanced {
+  background-color: rgba(255, 74, 0, 0.1);
+  color: #FF4A00;
+  border: 1px solid rgba(255, 74, 0, 0.2);
+}
