@@ -14,6 +14,11 @@ const plans = {
 // TODO: move this into a const file or make these an enum or something
 const TAX_RATE = 0.08
 
+export const prorateCharges = (subtotal: number, daysInMonth: number, remainingDays: number) => {
+  const proratedAmount = Math.round(((subtotal / daysInMonth) * remainingDays) * 100) / 100
+  
+  return proratedAmount + (proratedAmount * TAX_RATE)
+}
 
 export default function OrderSummary() {
   const navigate = useNavigate()
@@ -33,11 +38,6 @@ export default function OrderSummary() {
   const shouldProrate = () => {
     return selectedPlan !== 'free' && new Date().getDate() !== 1
   };
-
-  const prorateCharges = (subtotal: number) => {
-    const proratedAmount = Math.round(((subtotal / daysInMonth) * remainingDays) * 100) / 100
-    return proratedAmount + (proratedAmount * TAX_RATE)
-  }
 
   const onCompletePurchase = () => {
     setCurrentPlan(selectedPlan)
@@ -121,7 +121,11 @@ export default function OrderSummary() {
               { shouldProrate() ? (
                 <div className="os-total-col">
                   <span className="os-total-amount">
-                    ${prorateCharges(subtotal).toFixed(2)} <span className="os-total-prorated">(Prorated for {remainingDays} days)</span>
+                    ${prorateCharges(subtotal, daysInMonth, remainingDays).toFixed(2)}
+                    {' '}
+                    <span className="os-total-prorated">
+                      (Prorated for {remainingDays} days)
+                    </span>
                   </span>
                   <span className="os-total-next">
                     Next billing: ${total.toFixed(2)} on {nextBillingDate}
