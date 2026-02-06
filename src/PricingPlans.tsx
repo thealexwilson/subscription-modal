@@ -1,12 +1,16 @@
 import Button from './components/button'
 import './PricingPlans.scss'
+import { useNavigate } from 'react-router-dom'
+import { usePlanStore } from './store/usePlanStore'
 
-interface PricingPlansProps {
-  onUpgrade: (plan: string) => void
-}
+export default function PricingPlans() {
+  const navigate = useNavigate()
 
-export default function PricingPlans({ onUpgrade }: PricingPlansProps) {
-  const currentPlan = 'free'
+  const onUpgrade = (plan: string) => {
+    navigate(`/checkout/${plan}`)
+  }
+
+  const selectedPlan = usePlanStore((state) => state.selectedPlan)
 
   return (
     <div className="pricing-plans">
@@ -16,6 +20,7 @@ export default function PricingPlans({ onUpgrade }: PricingPlansProps) {
       </div>
 
       <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+        {/* TODO: Each plan could be moved out into a reusable component */}
         <div className='plan plan-featured'>
           <div className='plan-card plan-header'>
             <h2 className="plan-name">Free Plan</h2>
@@ -33,7 +38,8 @@ export default function PricingPlans({ onUpgrade }: PricingPlansProps) {
             </ul>
           </div>
           <div className='plan-card plan-footer'>
-            { currentPlan === 'free' ? (
+            {/* TODO: Move out into a reusable component */}
+            { selectedPlan === 'free' ? (
               <span className="current-plan-indicator">Current Plan</span>
             ) : (
               <Button 
@@ -41,7 +47,7 @@ export default function PricingPlans({ onUpgrade }: PricingPlansProps) {
                 className="upgrade-plan-indicator w-full" 
                 onClick={() => onUpgrade('free')}
               >
-                Upgrade
+                Select Plan
               </Button>
             )}
           </div>
@@ -64,7 +70,7 @@ export default function PricingPlans({ onUpgrade }: PricingPlansProps) {
             </ul>
           </div>
           <div className='plan-card plan-footer'>
-            { currentPlan === 'starter' ? (
+            { selectedPlan === 'starter' ? (
               <span className="current-plan-indicator">Current Plan</span>
             ) : (
               <Button 
@@ -72,7 +78,7 @@ export default function PricingPlans({ onUpgrade }: PricingPlansProps) {
                 className="upgrade-plan-indicator w-full" 
                 onClick={() => onUpgrade('starter')}
               >
-                Upgrade
+                Select Plan
               </Button>
             )}
           </div>
@@ -95,7 +101,7 @@ export default function PricingPlans({ onUpgrade }: PricingPlansProps) {
             </ul>
           </div>
           <div className='plan-card plan-footer'>
-            { currentPlan === 'pro' ? (
+            { selectedPlan === 'pro' ? (
               <span className="current-plan-indicator">Current Plan</span>
             ) : (
               <Button 
@@ -103,7 +109,7 @@ export default function PricingPlans({ onUpgrade }: PricingPlansProps) {
                 className="upgrade-plan-indicator w-full" 
                 onClick={() => onUpgrade('pro')}
               >
-                Upgrade
+                Select Plan
               </Button>
             )}
           </div>
