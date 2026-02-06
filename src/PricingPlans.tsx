@@ -6,11 +6,12 @@ import { usePlanStore } from './store/usePlanStore'
 export default function PricingPlans() {
   const navigate = useNavigate()
 
-  const onUpgrade = (plan: string) => {
+  const { selectedPlan, setSelectedPlan } = usePlanStore()
+
+  const onSelectPlan = (plan: string) => {
+    setSelectedPlan(plan)
     navigate(`/checkout/${plan}`)
   }
-
-  const selectedPlan = usePlanStore((state) => state.selectedPlan)
 
   return (
     <div className="pricing-plans">
@@ -45,7 +46,7 @@ export default function PricingPlans() {
               <Button 
                 variant="primary" 
                 className="upgrade-plan-indicator w-full" 
-                onClick={() => onUpgrade('free')}
+                onClick={() => onSelectPlan('free')}
               >
                 Select Plan
               </Button>
@@ -76,7 +77,7 @@ export default function PricingPlans() {
               <Button 
                 variant="primary" 
                 className="upgrade-plan-indicator w-full" 
-                onClick={() => onUpgrade('starter')}
+                onClick={() => onSelectPlan('starter')}
               >
                 Select Plan
               </Button>
@@ -107,7 +108,7 @@ export default function PricingPlans() {
               <Button 
                 variant="primary" 
                 className="upgrade-plan-indicator w-full" 
-                onClick={() => onUpgrade('pro')}
+                onClick={() => onSelectPlan('pro')}
               >
                 Select Plan
               </Button>

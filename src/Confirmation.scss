@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+@layer components {
+  .confirmation {
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    background-color: #0a0a0a;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .confirmation-container {
+    max-width: 560px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Success banner */
+  .confirmation-success {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .confirmation-success-icon {
+    color: #22c55e;
+    margin-bottom: 0.5rem;
+  }
+
+  .confirmation-success-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #e5e5e5;
+  }
+
+  .confirmation-success-subtitle {
+    font-size: 1rem;
+    color: #a3a3a3;
+    max-width: 360px;
+  }
+
+  /* Main card */
+  .confirmation-card {
+    background-color: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 0.75rem;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .confirmation-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .confirmation-card-header h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #e5e5e5;
+  }
+
+  .confirmation-id {
+    font-size: 0.8rem;
+    font-family: monospace;
+    color: #737373;
+    background-color: #0a0a0a;
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    border: 1px solid #2a2a2a;
+  }
+
+  /* Detail rows */
+  .confirmation-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .confirmation-detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .confirmation-detail-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #a3a3a3;
+    font-size: 0.875rem;
+  }
+
+  .confirmation-detail-value {
+    color: #e5e5e5;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  /* Divider */
+  .confirmation-divider {
+    height: 1px;
+    background-color: #2a2a2a;
+  }
+
+  /* Plan features */
+  .confirmation-plan-summary h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #e5e5e5;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .confirmation-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .confirmation-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    color: #d4d4d4;
+    font-size: 0.9rem;
+  }
+
+  .confirmation-features li svg {
+    color: #FF4A00;
+    flex-shrink: 0;
+  }
+
+  /* Totals */
+  .confirmation-totals {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .confirmation-line-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #a3a3a3;
+    font-size: 0.9rem;
+  }
+
+  .confirmation-line-total {
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #2a2a2a;
+    color: #e5e5e5;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .confirmation-total-amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #FF4A00;
+  }
+
+  /* Actions */
+  .confirmation-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .confirmation-actions button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+}

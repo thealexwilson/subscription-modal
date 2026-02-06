@@ -5,6 +5,8 @@ import {
   Routes, 
 } from 'react-router-dom'
 import Checkout from './Checkout'
+import OrderSummary from './OrderSummary'
+import Confirmation from './Confirmation'
 
 export default function Routing() {
   return (
@@ -12,6 +14,8 @@ export default function Routing() {
       <Routes>
         <Route path="/" element={<PricingPlans />} />
         <Route path="/checkout/:plan" element={<Checkout />} />
+        <Route path="/order-summary" element={<OrderSummary />} />
+        <Route path="/confirmation" element={<Confirmation />} />
       </Routes>
     </BrowserRouter>
   )

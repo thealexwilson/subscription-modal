@@ -87,7 +87,7 @@ export default function Checkout() {
     if (plan) {
       setSelectedPlan(plan)
     }
-    navigate('/')
+    navigate('/order-summary')
   }
   
   // TODO: could probably move this into a const file or make these an enum or something
