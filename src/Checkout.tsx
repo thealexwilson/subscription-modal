@@ -6,6 +6,7 @@ import { usePlanStore } from './store/usePlanStore'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { checkoutSchema, type CheckoutFormData } from './lib/checkoutSchema'
+import { getPlanById } from './constants/plans'
 
 export default function Checkout() {
   const { plan } = useParams<{ plan: string }>()
@@ -26,19 +27,10 @@ export default function Checkout() {
     }
     navigate('/order-summary')
   }
-  
-  // TODO: could probably move this into a const file or make these an enum or something
-  const plans = {
-    free: { name: 'Free Plan', price: 0, period: 'month' },
-    starter: { name: 'Starter Plan', price: 19.99, period: 'month' },
-    pro: { name: 'Pro Plan', price: 49, period: 'month' },
-  }
 
-  // TODO: this shouldnt be keyof - should be real enum values like FREE, STARTER, PRO
-  const currentPlan = plans[plan as keyof typeof plans] || plans.starter
+  const currentPlan = getPlanById(plan ?? '')
 
   return (
-    // TODO: could clean this up with reusable components
     <div className="checkout">
       <div className="checkout-container">
         <h1 className="checkout-title">Complete Your Purchase</h1>

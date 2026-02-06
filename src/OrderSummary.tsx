@@ -3,16 +3,7 @@ import './OrderSummary.scss'
 import { useNavigate } from 'react-router-dom'
 import { usePlanStore } from './store/usePlanStore'
 import { ArrowLeft, Zap, CircleCheck } from 'lucide-react'
-
-// TODO: could probably move this into a const file or make these an enum or something
-const plans = {
-  free: { name: 'Free Plan', price: 0, period: 'month', tasks: '100 tasks/month', zaps: '5 Zaps', features: ['Single-step Zaps'] },
-  starter: { name: 'Starter Plan', price: 19.99, period: 'month', tasks: '750 tasks/month', zaps: '20 Zaps', features: ['Multi-step Zaps'] },
-  pro: { name: 'Pro Plan', price: 49, period: 'month', tasks: '2,000 tasks/month', zaps: 'Unlimited Zaps', features: ['Premium apps', 'Priority support'] },
-}
-
-// TODO: move this into a const file or make these an enum or something
-const TAX_RATE = 0.08
+import { getPlanById, TAX_RATE } from './constants/plans'
 
 export const prorateCharges = (subtotal: number, daysInMonth: number, remainingDays: number) => {
   const proratedAmount = Math.round(((subtotal / daysInMonth) * remainingDays) * 100) / 100
@@ -24,7 +15,7 @@ export default function OrderSummary() {
   const navigate = useNavigate()
   const { selectedPlan, setCurrentPlan } = usePlanStore()
 
-  const planDetails = plans[selectedPlan as keyof typeof plans] || plans.starter
+  const planDetails = getPlanById(selectedPlan)
 
   const subtotal = planDetails.price
   const tax = subtotal * TAX_RATE

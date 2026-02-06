@@ -3,20 +3,13 @@ import './Confirmation.scss'
 import { useNavigate } from 'react-router-dom'
 import { usePlanStore } from './store/usePlanStore'
 import { CircleCheck, Rocket, Zap, Calendar, CreditCard } from 'lucide-react'
-
-const plans = {
-  free: { name: 'Free Plan', price: 0, period: 'month', tasks: '100 tasks/month', zaps: '5 Zaps' },
-  starter: { name: 'Starter Plan', price: 19.99, period: 'month', tasks: '750 tasks/month', zaps: '20 Zaps' },
-  pro: { name: 'Pro Plan', price: 49, period: 'month', tasks: '2,000 tasks/month', zaps: 'Unlimited Zaps' },
-}
-
-const TAX_RATE = 0.08
+import { getPlanById, TAX_RATE } from './constants/plans'
 
 export default function Confirmation() {
   const navigate = useNavigate()
   const { selectedPlan } = usePlanStore()
 
-  const planDetails = plans[selectedPlan as keyof typeof plans] || plans.starter
+  const planDetails = getPlanById(selectedPlan)
   const tax = planDetails.price * TAX_RATE
   const total = planDetails.price + tax
 
