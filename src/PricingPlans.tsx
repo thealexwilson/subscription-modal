@@ -17,7 +17,7 @@ export default function PricingPlans() {
     <div className="pricing-plans">
       <div className="pricing-header">
         <h1 className="pricing-title">Choose Your Plan</h1>
-        <p className="pricing-subtitle">Automate your work with Zapier</p>
+        <p className="pricing-subtitle">Choose the plan that works for you</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -5,6 +5,13 @@ import { usePlanStore } from './store/usePlanStore'
 import { ArrowLeft, Zap, CircleCheck } from 'lucide-react'
 import { getPlanById, TAX_RATE } from './constants/plans'
 
+/**
+ * Calculates prorated charges for a partial billing period.
+ * @param subtotal - Base monthly price
+ * @param daysInMonth - Total days in the current month
+ * @param remainingDays - Days remaining in the current month
+ * @returns Prorated amount including tax
+ */
 export const prorateCharges = (subtotal: number, daysInMonth: number, remainingDays: number) => {
   const proratedAmount = Math.round(((subtotal / daysInMonth) * remainingDays) * 100) / 100
   
@@ -28,7 +35,7 @@ export default function OrderSummary() {
 
   const shouldProrate = () => {
     return selectedPlan !== 'free' && new Date().getDate() !== 1
-  };
+  }
 
   const onCompletePurchase = () => {
     setCurrentPlan(selectedPlan)

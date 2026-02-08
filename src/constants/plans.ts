@@ -46,7 +46,11 @@ export const PLANS: Plan[] = [
   },
 ]
 
-/** Look up a plan by its id. Falls back to the first plan (Free) if not found. */
+/**
+ * Look up a plan by its id.
+ * @param id - Plan identifier (e.g., 'free', 'starter', 'pro')
+ * @returns Plan object, or the first plan (Free) if not found
+ */
 export function getPlanById(id: string): Plan {
   return PLANS.find((p) => p.id === id) ?? PLANS[0]
 }

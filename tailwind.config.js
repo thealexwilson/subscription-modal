@@ -6,7 +6,7 @@ export default {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
-        primary: '#FF4A00', // Zapier orange
+        primary: '#FF4A00',
         secondary: '#201515',
       },
     },
