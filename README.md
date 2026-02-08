@@ -31,6 +31,7 @@ npm test
 - [ ] Update some form niceities - auto format CC input, etc
 - [ ] Implement actual payment provider (Stripe Elements)
 - [ ] Add loading skeleton states
+- [ ] Refactor for more reusable components
 
 
 ## TODO Checklist:
