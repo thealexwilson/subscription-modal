@@ -26,7 +26,7 @@ npm test
 - Fast tests, familiar API
 
 ## What I'd Improve With More Time
-- [ ] Fix state issues - back button and refreshing pages is funky
+- [ ] Fix state issues - back button and refreshing pages is funky - perhaps need context or something
 - [ ] Update responsive design - checkout page breaks on mobile
 - [ ] Update some form niceities - auto format CC input, etc
 - [ ] Implement actual payment provider (Stripe Elements)
